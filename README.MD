@@ -2,7 +2,7 @@
 
 These exercises are part of the "VS Code Can Do That" workshop from Front End Masters.
 
-Prerequisites...
+## Prerequisites
 
 **These are important. You need to have these items installed to complete this workshop**
 
