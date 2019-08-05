@@ -1,0 +1,14 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+  "name": "Node.js & Mongo DB",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "web",
+  "workspaceFolder": "/workspace",
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-cosmosdb",
+    "alexcvzz.vscode-sqlite",
+    "formulahendry.vscode-mysql",
+    "esbenp.prettier-vscode"
+  ]
+}

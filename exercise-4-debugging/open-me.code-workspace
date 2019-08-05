@@ -1,0 +1,27 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "./1-simple-node"
+    },
+    {
+      "path": "./2-launch-configs"
+    },
+    {
+      "path": "./3-debug-browser-apps"
+    },
+    {
+      "path": "./4-compound-launch-config"
+    }
+  ],
+  "settings": {
+    "workbench.colorCustomizations": {},
+    "files.exclude": {
+      "**/{1*,2*,3*,4*}": true
+    },
+    "debug.node.autoAttach": "on",
+    "liveServer.settings.multiRootWorkspaceName": "3-debug-browser-apps"
+  }
+}

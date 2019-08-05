@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "start"
+		},
+		{
+			"path": "solution"
+		}
+	],
+	"settings": {
+		// exclude everything from the root folder except the exercise.adoc
+		"files.exclude": {
+			"**/{solution,start}/**": true,
+			"**/*.code-workspace": true
+		},
+		"workbench.colorCustomizations": {}
+	}
+}

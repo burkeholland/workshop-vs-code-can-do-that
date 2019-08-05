@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "./start"
+		},
+		{
+			"path": "./solution"
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/{solution,start}/**": true,
+			"**/*.code-workspace": true
+		},
+		"liveServer.settings.multiRootWorkspaceName": "start"
+	}
+}

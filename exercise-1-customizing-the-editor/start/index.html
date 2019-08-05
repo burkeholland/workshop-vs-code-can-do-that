@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=`, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="I ate a big red candle. I love lamp." />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"
+    />
+    <title>I Love Lamp</title>
+    <style>
+      html {
+        background-image: url(background.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        min-height: 1400px;
+      }
+
+      body {
+        background-color: RGBA(255, 255, 255, 0.8);
+        height: 100%;
+      }
+
+      #app {
+        max-width: 800px;
+      }
+
+      #lightBulb {
+        width: 482px;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <div class="has-text-centered">
+        <img src="logo.png" alt="" />
+      </div>
+      <section class="section">
+        <div class="columns is-vcentered">
+          <div class="column is-10">
+            <input
+              id="colorInput"
+              class="input is-large"
+              type="color"
+              placeholder="Enter a Color"
+            />
+          </div>
+          <div class="column">
+            <a id="goButton" class="button is-large is-fullwidth is-primary">
+              Go
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div id="lightBulb">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="478px"
+            height="840px"
+            version="1.1"
+            viewBox="0 0 478 840"
+          >
+            <defs>
+              <rect
+                id="path-1"
+                width="245"
+                height="25"
+                x="118"
+                y="693"
+                rx="12.5"
+              />
+              <rect
+                id="path-2"
+                width="245"
+                height="25"
+                x="118"
+                y="734"
+                rx="12.5"
+              />
+              <rect
+                id="path-3"
+                width="245"
+                height="25"
+                x="118"
+                y="779"
+                rx="12.5"
+              />
+              <linearGradient
+                id="linearGradient-4"
+                x1="-16.4684047%"
+                x2="84.6270718%"
+                y1="24.0258049%"
+                y2="50%"
+              >
+                <stop offset="0%" stop-color="#8E8E8E" />
+                <stop offset="37.94706%" stop-color="#C4C4C4" />
+                <stop offset="100%" stop-color="#F7F7F7" />
+              </linearGradient>
+            </defs>
+            <g
+              id="Page-1"
+              fill="none"
+              fill-rule="evenodd"
+              stroke="none"
+              stroke-width="1"
+            >
+              <circle id="bulb" cx="239" cy="239" r="239" fill="#FFFFFF" />
+              <rect
+                id="Rectangle-3"
+                width="231"
+                height="209"
+                x="124"
+                y="631"
+                fill="#C7D3D3"
+                rx="20"
+              />
+              <g id="Rectangle-3">
+                <use fill="#C7D3D3" fill-rule="evenodd" xlink:href="#path-1" />
+                <rect
+                  width="244"
+                  height="24"
+                  x="118.5"
+                  y="693.5"
+                  stroke="#979797"
+                  stroke-width="1"
+                  rx="12"
+                />
+              </g>
+              <g id="Rectangle-3">
+                <use fill="#C7D3D3" fill-rule="evenodd" xlink:href="#path-2" />
+                <rect
+                  width="244"
+                  height="24"
+                  x="118.5"
+                  y="734.5"
+                  stroke="#979797"
+                  stroke-width="1"
+                  rx="12"
+                />
+              </g>
+              <g id="Rectangle-3">
+                <use fill="#C7D3D3" fill-rule="evenodd" xlink:href="#path-3" />
+                <rect
+                  width="244"
+                  height="24"
+                  x="118.5"
+                  y="779.5"
+                  stroke="#979797"
+                  stroke-width="1"
+                  rx="12"
+                />
+              </g>
+              <path
+                id="Combined-Shape"
+                fill="url(#linearGradient-4)"
+                d="M89.5755052,631.03125 C87.4913142,625.419929 86.4492188,595.987637 86.4492188,542.734375 C86.4492188,479.849826 62.2994792,409.271701 14,331 L240.5,331 L466.5,331 C418.200521,409.271701 394.050781,479.849826 394.050781,542.734375 C394.050781,605.207268 392.616619,634.897044 389.748294,631.803701 L373,661 L106,661 L89.990103,631.817788 C89.8613953,631.669787 89.7361965,631.44158 89.6145066,631.133166 L89.5585938,631.03125 L89.5755052,631.03125 Z"
+              />
+            </g>
+          </svg>
+          <p class="is-size-1 has-text-centered" id="currentColor"></p>
+        </div>
+      </section>
+    </div>
+    <script src="vendor/signalr.min.js"></script>
+    <script src="src/app.js"></script>
+  </body>
+</html>

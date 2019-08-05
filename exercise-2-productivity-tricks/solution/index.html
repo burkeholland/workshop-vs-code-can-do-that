@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=`, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"
+    />
+    <title>I Love Lamp</title>
+    <style>
+      html {
+        background-image: url(background.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        min-height: 1400px;
+      }
+
+      body {
+        background-color: RGBA(255, 255, 255, 0.8);
+        height: 100%;
+      }
+
+      #app {
+        max-width: 800px;
+      }
+
+      #lightBulb {
+        width: 482px;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <div class="has-text-centered">
+        <img src="logo.png" alt="" />
+      </div>
+      <div class="section">
+        <div class="columns is-vcentered">
+          <div class="column is-10">
+            <input
+              id="colorInput"
+              class="input is-large"
+              type="color"
+              placeholder="Enter a Color"
+            />
+          </div>
+          <div class="column">
+            <a id="goButton" class="button is-large is-fullwidth is-primary">
+              Go
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div id="lightBulb">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="478"
+            height="840"
+          >
+            <defs>
+              <rect id="a" width="245" height="25" x="118" y="693" rx="12.5" />
+              <rect id="b" width="245" height="25" x="118" y="734" rx="12.5" />
+              <rect id="c" width="245" height="25" x="118" y="779" rx="12.5" />
+              <linearGradient
+                id="d"
+                x1="-16.468%"
+                x2="84.627%"
+                y1="24.026%"
+                y2="50%"
+              >
+                <stop offset="0%" stop-color="#8E8E8E" />
+                <stop offset="37.947%" stop-color="#C4C4C4" />
+                <stop offset="100%" stop-color="#F7F7F7" />
+              </linearGradient>
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+              <circle cx="239" cy="239" r="239" fill="#FFF" />
+              <rect
+                width="231"
+                height="209"
+                x="124"
+                y="631"
+                fill="#C7D3D3"
+                rx="20"
+              />
+              <use fill="#C7D3D3" xlink:href="#a" />
+              <rect
+                width="244"
+                height="24"
+                x="118.5"
+                y="693.5"
+                stroke="#979797"
+                rx="12"
+              />
+              <use fill="#C7D3D3" xlink:href="#b" />
+              <rect
+                width="244"
+                height="24"
+                x="118.5"
+                y="734.5"
+                stroke="#979797"
+                rx="12"
+              />
+              <g>
+                <use fill="#C7D3D3" xlink:href="#c" />
+                <rect
+                  width="244"
+                  height="24"
+                  x="118.5"
+                  y="779.5"
+                  stroke="#979797"
+                  rx="12"
+                />
+              </g>
+              <path
+                fill="url(#d)"
+                d="M89.576 631.031c-2.085-5.611-3.127-35.043-3.127-88.297C86.45 479.85 62.3 409.272 14 331h452.5c-48.3 78.272-72.45 148.85-72.45 211.734 0 62.473-1.433 92.163-4.302 89.07L373 661H106l-16.01-29.182c-.129-.148-.254-.376-.375-.685l-.056-.102h.017z"
+              />
+            </g>
+          </svg>
+          <p class="is-size-1 has-text-centered" id="currentColor"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

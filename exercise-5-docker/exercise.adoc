@@ -1,0 +1,146 @@
+:doctype: article
+:experimental: true
+
+= 6. Docker
+
+In this exercise, you'll learn how to do the following with VS Code
+
+1. How to "Dockerize" an application
+2. How to run containers
+3. How to view container logs 
+4. How to attach a terminal to a running container
+5. How to debug code running in containers
+6. How to push containers to a registry
+
+> When you are working through these exercises, make sure you are always selecting the "Exercises" workspace when prompted.
+
+== Add a Docker files to the "start" project 
+
+Start by adding Docker files to the "start" project.
+
+.Solution
+[%collapsible]
+====
+1. kbd:[Ctrl] / kbd:[Cmd] + kbd:[Shift] + kbd:[P] 
+1. Select "Add Dockerfiles to Workspace
+1. Select the "Exercise" workspace
+1. Select "Node.js"
+1. Change the default port 3001
+====
+
+== Modify the "Dockerfile"
+
+The built application is contained in the "server" folder. Modify the Dockerfile so that it...
+
+1. Copies in `server/package.json`
+1. Runs an `npm install`
+1. Copies all of the files in `server` to the container
+
+.Solution
+[%collapsible]
+====
+1. Modify line 4 of the Dockerfile to be...
+----
+COPY ["server/package.json", "server/package-lock.json*", "server/npm-shrinkwrap.json*", "./"]
+----
+1. Modify line 6 to copy in the contents of only the `server` folder
+----
+COPY server .
+----
+====
+
+== Build and run the image
+
+Build the image and then run it from VS Code
+
+.Solution
+[%collapsible]
+====
+1. kbd:[Ctrl] / kbd:[Cmd] + kbd:[Shift] + kbd:[P] 
+1. Select "Docker: Build Image"
+1. Select "Exercise"
+1. Select "Dockerfile"
+1. Take the default image name
+1. Open up the Docker explorer in VS Code
+1. Locate the image at the top in the "images" section
+1. Expand the image and right-click the contents
+1. Select "Run"
+====
+
+== Build with Compose
+
+The other way to build an image is with a compose file. These are generally used when you want to compose a container that consists of 1 or more images. 
+
+Add Mongo DB to the project by including it's image and then build the "composed" image with Docker Compose.
+
+.Solution
+[%collapsible]
+====
+1. Open the `docker-compose.yml` file
+1. Add a section called "mongo" and include the Mongo DB image
+----
+  mongo: 
+    image: 'mongo'
+----
+1. Link the "mongo" image to the "exercise-6-docker" image
+----
+version: '2.1'
+
+services:
+  exercise-6-docker:
+    image: exercise-6-docker
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    links:
+      - mongo
+
+  mongo: 
+    image: 'mongo'
+----
+====
+
+== Attach A Shell
+
+Attach a shell to the running container and inspect the contents
+
+.Solution
+[%collapsible]
+====
+1. Right-click the running image and select "Attach Shell"
+1. List out all files in the container with `ls`
+====
+
+== Debug the container
+
+VS Code can attach to processes running inside of containers. This is done with a debug compose file which exposes the right ports. Set a breakpoint in the application and then debug it with VS Code.
+
+.Solution
+[%collapsible]
+====
+1. Press the "Debug" icon to open the debug explorer
+1. Press the gear icon at the top to generate a launch configuration
+1. Select "Docker: Node"
+1. Modify the launch configuration to match the following
+----
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Docker: Attach to Node",
+      "type": "node",
+      "request": "attach",
+      "remoteRoot": "/usr/src/app",
+      "localRoot": "${workspaceRoot}"
+    }
+  ]
+}
+----
+1. kbd:[Ctrl] / kbd:[Cmd] + kbd:[Shift] + kbd:[P] 
+1. Select "Docker: Compose Up"
+1. Select the "start" workspace
+1. Select the `docker-compose.debug.yaml` file
+1. kbd:[F5]
+====

@@ -1,0 +1,5 @@
+CREATE TABLE [IF NOT EXISTS] [test].Users (
+ id data_type PRIMARY KEY,
+   name data_type NOT NULL,
+ table_constraint
+) [WITHOUT ROWID];

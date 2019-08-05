@@ -1,0 +1,132 @@
+:doctype: article
+:experimental: true
+
+= Exercise 4: Debugging
+
+== Debug a JavaScript file
+
+Node debugging is built-in to VS Code. You can run any code in the debugger just by pressing kbd:[F5] on a JavaScript file.
+
+Open the `index.js` file in the `1-simple-node` folder. Run it with the Node Debugger.
+
+.Solution
+[%collapsible]
+====
+* Press kbd:[F5]
+====
+
+== Auto-Attach
+
+Run the `index.js` file in the `2-launch-configs` folder. Auto-attach to it with VS Code.
+
+.Solution
+[%collapsible]
+====
+* kbd:[Ctrl] / kbd:[Cmd] + kbd:[Shift] + kbd:[P] 
+* Select "Toggle Auto Attach"
+* Set a breakpoint in the `index.js` file
+* Open the integrated terminal
+* Execute the `index.js` file in inspect mode
+    ----
+    node --inspect-brk index.js
+    ----
+====
+
+== Launch Config
+
+Create a launch config that attaches to a running debug process in the `2-launch-configs` folder.
+
+.Solution
+[%collapsible]
+====
+* Make sure "Auto Attach" is toggled off in VS Code
+* Run the `index.js` file from the integrated terminal in inspect mode
+----
+  node --inspect-brk index.js
+----
+* Open the Debug panel in VS Code
+* Open the drop-down list at the top and select "Add Config (2-launch-configs)"
+* Select "Node" from the prompt
+* Change the name to "Attach To Node"
+* Change the "request" type to "attach"
+* Select "Attach To Node" from the drop down list at the top and press the green button
+====
+
+Change the launch config to both launch and attach to the process.
+
+.Solution
+[%collapsible]
+====
+* Open the `launch.config` file in the `2-launch-configs` folder
+* Change the name to "Launch Node"
+* Change the "request" type to "launch"
+* Select "Launch Node" from the drop down list at the top and press the green button
+====
+
+== Debugging Browser Apps
+
+The application in `3-debug-browser-apps` is broken. Create a launch configuration to launch it in Chrome and debug.
+
+.Solution
+[%collapsible]
+====
+* Switch to the Debug panel in VS Code
+* Select "Add config (3-debug-browser-apps)"
+* Change the "name" to "Debug Browser App"
+* Select "Debug Browser App" in the drop down list at the top and click the green button
+* Good luck
+====
+
+== Compound Launch Configurations
+
+VS Code can launch multiple debuggers at the same time. This is useful for when you want to debug an app that has both a client and a server component and both need to be running for the app to work.
+
+Open the project in `4-compound-launch-config` and add two launch configurations:
+
+1. Launch the `server/server.js` file with the Node debugger
+2. Launch `npm start` and attach the Chrome Debugger 
+
+Create a compound launch configuration to launch both debuggers at the same time.
+
+.Solution
+[%collapsible]
+====
+* Open the Debug panel in VS Code
+* Select "Add launch config (4-compound-launch-config)"
+*  Select "Node.js" from the list
+*  Change the "program" setting to...
+----
+"program": "${workspaceFolder}/server/server.js"
+----
+*  Add a `console` setting and set it to `integratedTerminal`
+----
+"console" "integratedTerminal"
+----
+
+*  Click the "Add Configuration" button at the bottom right corner of the `launch.config` file screen
+*  Select "Chrome: Launch" from the list
+*  Change the "url" to `http://localhost:3000`
+----
+"url": "http://localhost:3000"
+----
+* Add a setting to launch the React App with npm
+----
+"preLaunchTask": "npm: start"
+----
+* Set the `webRoot` setting to `${workspaceFolder}/src`
+----
+"webRoot": "${workspaceFolder}/src"
+----
+
+* Add a new setting above the main "configurations" node called "compound"
+----
+"compounds": [
+  {
+    "name": "Launch Program/Chrome",
+    "configurations": ["Launch Program", "Launch Chrome"]
+  }
+],
+----
+
+* Select "Launch Program/Chrome" from the drop down list and press the green button
+====

@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "./start"
+    },
+    {
+      "path": "./solution"
+    },
+    {
+      "name": "i-love-lamp",
+      "path": "start/i-love-lamp"
+    }
+  ],
+  "settings": {}
+}

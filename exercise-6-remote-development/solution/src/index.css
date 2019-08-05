@@ -1,0 +1,21 @@
+html {
+  background-image: url(background.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  min-height: 1400px;
+}
+
+body {
+  background-color: RGBA(255, 255, 255, 0.8);
+  height: 100%;
+}
+
+#app {
+  max-width: 800px;
+}
+
+#lightBulb {
+  width: 482px;
+  margin: auto;
+}

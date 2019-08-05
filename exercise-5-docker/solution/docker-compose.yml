@@ -1,0 +1,15 @@
+version: '2.1'
+
+services:
+  exercise-6-docker:
+    image: exercise-6-docker
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3001:3001
+    links:
+      - mongo
+
+  mongo: 
+    image: 'mongo'
