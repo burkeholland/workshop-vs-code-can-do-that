@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const API_BASE = process.env.API_BASE;
+const API_BASE = "https://lifx-lamp-api.azurewebsites.net/api";
 const axios_1 = require("axios");
 const readline = require("readline").createInterface({
     input: process.stdin,

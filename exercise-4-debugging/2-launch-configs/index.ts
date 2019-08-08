@@ -1,4 +1,4 @@
-const API_BASE = process.env.API_BASE;
+const API_BASE = "https://lifx-lamp-api.azurewebsites.net/api";
 import axios from "axios";
 
 const readline = require("readline").createInterface({

@@ -1,16 +1,16 @@
 {
-  "name": "1-simple-node",
+  "name": "3-debug-browser-apps",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo pffffft",
-    "start": "node index.js"
+    "test": "echo BWAHAHAHAHA",
+    "start": "lite-server index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.0"
+    "lite-server": "^2.5.3"
   }
 }

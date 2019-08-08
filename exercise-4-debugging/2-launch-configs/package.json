@@ -1,16 +1,20 @@
 {
-  "name": "express-react-starter",
-  "version": "0.1.0",
-  "private": true,
+  "name": "2-launch-configs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.15.3",
-    "morgan": "^1.8.2",
-    "debug": "~2.6.3",
-    "jade": "^1.11.0"
+    "axios": "^0.19.0",
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.1"
   },
   "scripts": {
-    "start": "./server.js"
-  }
+    "test": "echo No, seriously, pffffft",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

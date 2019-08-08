@@ -6,11 +6,28 @@ let goButton = document.getElementById("goButton");
 let colorInput = document.getElementById("colorInput");
 let currentColor = document.getElementById("currentColor");
 let bulb = document.getElementById("bulb");
+let online = window.navigator.onLine;
 
 class App {
   /**
    * Initalize the page and websocket connection
    */
+
+  constructor() {
+    const online = window.navigator.onLine;
+
+    goButton.addEventListener("click", async () => {
+      const color = colorInput.value;
+      this.setColor(color);
+    });
+
+    if (online) {
+      this.init();
+    } else {
+      console.log("App is offline. Lamp API will not be used.");
+    }
+  }
+
   async init() {
     // initialize signalR hub (websockets connection)
     let connection = new signalR.HubConnectionBuilder()
@@ -19,17 +36,17 @@ class App {
 
     // receives the "colorChanged" web socket event
     connection.on("colorChanged", hex => {
-      // add a color circle
+      // update the bulb color
       this.updateColor(hex);
     });
 
     // start the websocket connection
     await connection.start();
+  }
 
-    goButton.addEventListener("click", async () => {
-      const color = colorInput.value;
-      this.setColor(color);
-    });
+  updateColor(hex) {
+    bulb.style = `fill: #${hex};`;
+    currentColor.textContent = `#${hex}`;
   }
 
   /**
@@ -37,36 +54,14 @@ class App {
    * @param {string} color
    */
   async setColor(color) {
-    await fetch(
-      `${API_BASE}/setColor?color=${color.substring(1, color.length)}`
-    );
-  }
-
-  /**
-   * Adds a circle representing the most recently updated color and changes
-   * the color of the bulb
-   * @param {string} color
-   */
-  updateColor(color) {
-    // add a color circle
-    bulb.style = `fill: #${color};`;
-    currentColor.textContent = `#${color}`;
-  }
-
-  /**
-   * Creates the color circle HTML element
-   * @param {string} color
-   */
-  createColumn(color) {
-    let column = document.createElement("div");
-    column.className = "column is-1 pastColor drop";
-    column.style = `background-color: #${color}`;
-    column.addEventListener("click", () => {
-      this.setColor(color);
-    });
-
-    return column;
+    const hexNoHash = color.substring(1, color.length);
+    // if we're online, update the lamp
+    if (online) {
+      await fetch(`${API_BASE}/setColor?color=${hexNoHash}`);
+    } else {
+      updateColor(hexNoHash);
+    }
   }
 }
 
-new App().init();
+let application = new App();

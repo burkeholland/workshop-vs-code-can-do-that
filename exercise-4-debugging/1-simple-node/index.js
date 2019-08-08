@@ -5,13 +5,18 @@ const App = {
   /**
    * Initalize the page and websocket connection
    */
-  init() {
-    let result = axios.get(`${API_BASE}/setColor?color=blue`).then(response => {
-      // do something with the data here
-      response.data.results.forEach(item => {
-        // update the lamp color
+  async init() {
+    const result = axios
+      .get(`${API_BASE}/setColor?color=blue`)
+      .then(response => {
+        response.data.results.forEach(item => {
+          console.log(item);
+          // update the lamp color
+        });
+      })
+      .catch(err => {
+        console.log("Unable to connect to the LAMP API");
       });
-    });
   }
 };
 
