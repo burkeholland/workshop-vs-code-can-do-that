@@ -1,6 +1,8 @@
 = Exercise 2 - Create a website!
 :experimental: true'
 
+Before you run the exercise in "start" or "solution", you need to run an `npm install` in that folder. 
+
 == Essential Keyboard Shortcuts
 
 You can't learn all of the VS Code shortcuts, so don't try. I've distilled down what I believe are the most important shortcuts to learn. Commit these to memory. 
