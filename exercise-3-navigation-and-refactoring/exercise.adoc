@@ -122,7 +122,7 @@ currentColor.textContent = `#${color}`;
 
 === Multiple Cursors: Super Bonus
 
-1. Open the `package.json` file in this folder and select all of the "devDependences"
+1. Open the `fake-package.json` file in this folder and select all of the "devDependences"
 2. Paste them into a new file - do not save the file
 3. Using multiple cursors, transform the list into a valid `npm install` statement...
 
