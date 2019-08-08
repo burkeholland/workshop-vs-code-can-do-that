@@ -75,21 +75,19 @@ link
 ==== Add a section element to the app container that has an input and a button
 
 ----
-<section class="section">
-  <div class="has-text-centered">
-    <img src="logo.png" alt="" />
-  </div>
-  <div class="columns">
-    
-  </div>
-</section>
+<div class="has-text-centered">
+  <img src="logo.png" alt="" />
+</div>
+<div class="section">
+  <div class="columns"></div>
+</div>
 ----
 
 .Solution
 [%collapsible]
 ====
 ----
-.section>(.has-text-centered>img)+.columns
+(.has-text-centered>img)+ (.section>.columns)
 ----
 ====
 
