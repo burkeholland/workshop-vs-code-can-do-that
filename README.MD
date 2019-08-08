@@ -47,3 +47,17 @@ Then select the "start" workspace.
 ![](images/select-start-workspace.png)
 
 Then click the "Go Live" button in the status bar.
+
+## Essential Keyboard Shortcuts
+
+Before you start, familiarize with these 5 fundamental keyboard shortcuts...
+
+| Action                     | Shortcut                                                           |
+| -------------------------- | ------------------------------------------------------------------ |
+| Toggle Sidebar             | <kbd>Ctrl</kbd> / <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> |
+| Open Command Palette       | <kbd>Ctrl</kbd> / <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> |
+| Open File Switcher         | <kbd>Ctrl</kbd> / <kbd>Cmd</kbd> + <kbd>P</kbd>                    |
+| Toggle integrated terminal | <kbd>Ctrl</kbd> + <kbd>`</kbd>                                     |
+| Open Settings              | <kbd>Ctrl</kbd> / <kbd>Cmd</kbd> + <kbd>,</kbd>                    |
+
+## Good luck!
