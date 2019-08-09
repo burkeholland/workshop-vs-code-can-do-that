@@ -8,8 +8,7 @@
       "name": "Docker: Attach to Node",
       "type": "node",
       "request": "attach",
-      "remoteRoot": "/usr/src/app",
-      "localRoot": "${workspaceRoot}"
+      "remoteRoot": "/usr/src/app"
     }
   ]
 }
