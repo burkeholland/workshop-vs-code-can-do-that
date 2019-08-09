@@ -12,7 +12,7 @@ router.get("/setColor", async (req, res, next) => {
     await axios.get(`${API_BASE}/setColor?color=${color}`);
     res.json({ color: color });
   } catch (err) {
-    res.status = 500;
+    res.json({ color: color, message: "Lamp API is not available" });
   }
 });
 

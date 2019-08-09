@@ -30,22 +30,14 @@ Start by adding Docker files to the "start" project.
 
 == Modify the "Dockerfile"
 
-The built application is contained in the "server" folder. Modify the Dockerfile so that it...
-
-1. Copies in `server/package.json`
-1. Runs an `npm install`
-1. Copies all of the files in `server` to the container
+The application is expecting a PORT enviornment variable of 3000. Add that to the Dockerfile.
 
 .Solution
 [%collapsible]
 ====
-1. Modify line 4 of the Dockerfile to be...
+Add a new line under line 2
 ----
-COPY ["server/package.json", "server/package-lock.json*", "server/npm-shrinkwrap.json*", "./"]
-----
-1. Modify line 6 to copy in the contents of only the `server` folder
-----
-COPY server .
+ENV PORT 3000
 ----
 ====
 
@@ -132,8 +124,7 @@ VS Code can attach to processes running inside of containers. This is done with 
       "name": "Docker: Attach to Node",
       "type": "node",
       "request": "attach",
-      "remoteRoot": "/usr/src/app",
-      "localRoot": "${workspaceRoot}"
+      "remoteRoot": "/usr/src/app"
     }
   ]
 }

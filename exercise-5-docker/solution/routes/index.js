@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var axios = require("axios");
 
-const API_BASE = "https://lifx-lamp-api.azurewebsites.net/api";
+const API_BASE = "https://i-enjoy-lamp.azurewebsites.net/api";
 
 router.get("/setColor", async (req, res, next) => {
   const color = req.query.color;
@@ -12,7 +12,7 @@ router.get("/setColor", async (req, res, next) => {
     await axios.get(`${API_BASE}/setColor?color=${color}`);
     res.json({ color: color });
   } catch (err) {
-    res.status = 500;
+    res.json({ color: color, message: "Lamp API is not available" });
   }
 });
 
