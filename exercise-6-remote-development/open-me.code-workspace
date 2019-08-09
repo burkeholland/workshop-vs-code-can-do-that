@@ -16,6 +16,7 @@
 			"**/{solution,start}/**": true,
 			"**/*.code-workspace": true
 		},
-		"workbench.colorCustomizations": {}
+		"workbench.colorCustomizations": {},
+		"debug.internalConsoleOptions": "neverOpen"
 	}
 }

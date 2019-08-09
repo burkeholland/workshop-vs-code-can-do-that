@@ -1,0 +1,10 @@
+{
+  "files.exclude": {
+    "obj": true,
+    "bin": true
+  },
+  "azureFunctions.deploySubpath": "start",
+  "azureFunctions.projectLanguage": "JavaScript",
+  "azureFunctions.projectRuntime": "~2",
+  "azureFunctions.preDeployTask": "npm prune"
+}

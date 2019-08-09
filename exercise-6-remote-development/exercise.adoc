@@ -3,7 +3,9 @@
 
 = Remote Development - Containers
 
-Create a development environment for the Lamp project which contains all of the proper project configuration, extensions and dependencies.
+Create a development environment for the Lamp API project which contains all of the required dependencies.
+
+Note: Don't forget to run `npm install` in the "start" directory before you begin working.
 
 == 1. Add the container definition files to the workspace
 
@@ -15,7 +17,7 @@ Add the proper files and folders to create the container definition.
 * Open the Command Pallete (kbd:[Ctrl] / kbd:[Cmd] + kbd:[Shift] + kbd:[P])
 * Select "Remote-Containers: Add development container configuration files"
 * Select "start" workspace
-* Select "Node.js: Latest (LTS)"
+* Select "Azure Fucntions & Node.js: Latest (LTS)"
 ====
 
 == 2. Open the project in the container
@@ -25,56 +27,28 @@ Open the project in the newly created container
 .Solution
 [%collapsible]
 ====
+* Open just the "start" folder in VS Code
 * Click on the "Remote Development" icon in the bottom left-hand corner of VS Code
 * Select "Remote-Containers: Re-open folder in container"
 ====
 
 == 3.  Run the app
 
-Open the terminal and run the application inside the container
+Run the app in debug mode
 
 .Solution
 [%collapsible]
 ====
-* Open the terminal (kbd:[Ctrl] + kbd:[`])
-* Start the application with `npm start`
-====
-
-== 4. Forward the port from the container
-
-Forward port 3001 from the container and open the app in your browser.
-
-.Solution
-[%collapsible]
-====
-* Open the Command Palette (kbd:[Ctrl] / kbd:[Cmd] + kbd:[Shift] + kbd:[P])
-* Select "Remote-Containers: Forward port from container"
-====
-
-== 5. Configure the container to auto-forward the port
-
-Configure the container to automatically publish port 3001
-
-.Solution
-[%collapsible]
-====
-* Open the `.devcontainer/devcontainer.json` file
-* Add the following lines...
+* Press kbd:[F5]
+* Navigate to http://localhost:7071/api/setColor
+* Pass a color as a variable on the query string...
 ----
-"appPort": [
-  3001
-]
+http://localhost:7071/api/setColor?color=blue
 ----
-* Open the Command Palette (kbd:[Ctrl] / kbd:[Cmd] + kbd:[Shift] + kbd:[P])
-* Select "Remote-Container: Rebuild Container"
-* When the window re-opens, open the terminal (kbd:[Ctrl] / kbd:[`]) 
-* Run `npm start`
-* Visit the app in your browser at `localhost:3001`
 ====
+== 6. Include an extension in the container definition
 
-== 6. Include some extensions in the container definition
-
-Include the React Foodtruck extension in the container
+Include the Prettier extension in the container
 
 .Solution
 [%collapsible]
@@ -83,12 +57,53 @@ Include the React Foodtruck extension in the container
 * Add the following lines...
 ----
 "extensions": [
-  "burkeholland.react-food-truck"
+  "esbenp.prettier-vscode"
 ]
 ----
 * Rebuild the container
 ** Open the Command Palette (kbd:[Ctrl] / kbd:[Cmd] + kbd:[Shift] + kbd:[P])
 ** Select "Remote-Container: Rebuild Container"
-* Check the Extensions tab to see that all of the React Food Truck extensions are installed
+* Check the Extensions tab to see that the Prettier extension is installed
+====
+
+== 7. Add a new Function
+
+Add a new HTTP Function to the project that randomly changes the bulb to a new color
+
+.Solution
+[%collapsible]
+====
+* Open the Command Palette (kbd:[Ctrl] / kbd:[Cmd] + kbd:[Shift] + kbd:[P])
+* Select "Azure Functions: Create Function"
+* Select "HTTPTrigger"
+* Name it "danceDance"
+* Open the `index.js` file in the "danceDance" folder and add the following code
 ----
+const bulb = require("../bulb");
+
+module.exports = async function(context, req) {
+  const color = req.query.color;
+  if (color) {
+    try {
+      const result = await bulb.setColor(color);
+      context.res = {
+        body: result
+      };
+    } catch (err) {
+      context.res = {
+        body: { message: "Unable to access the LIFX Lamp API " }
+      };
+    }
+  } else {
+    context.res = {
+      status: 500,
+      body: "Please pass the color parameter"
+    };
+  }
+};
+----
+* Run the app (kbd:[F5])
+* Navigate to "http://localhost:7071/api/danceDance"
+* Refresh the page to change the lamp to a new color
+====
 

@@ -10,29 +10,31 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Configure apt and install packages
 RUN apt-get update \
-    && apt-get -y install --no-install-recommends apt-utils 2>&1 \ 
+    && apt-get -y install --no-install-recommends apt-utils 2>&1 \
     #
     # Verify git and needed tools are installed
-    && apt-get install -y git procps \
+    && apt-get -y install \
+        git \
+        procps \
+        curl \
+        apt-transport-https \
+        gnupg2 \
+        lsb-release \
     #
-    # Remove outdated yarn from /opt and install via package 
-    # so it can be easily updated via apt-get upgrade yarn
-    && rm -rf /opt/yarn-* \
-    && rm -f /usr/local/bin/yarn \
-    && rm -f /usr/local/bin/yarnpkg \
-    && apt-get install -y curl apt-transport-https lsb-release \
-    && curl -sS https://dl.yarnpkg.com/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/pubkey.gpg | apt-key add - 2>/dev/null \
-    && echo "deb https://dl.yarnpkg.com/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    # Install Azure Functions, .NET Core, and Azure CLI
+    && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -cs) main" > /etc/apt/sources.list.d/azure-cli.list \
+    && echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list \
+    && curl -sL https://packages.microsoft.com/keys/microsoft.asc | (OUT=$(apt-key add - 2>&1) || echo $OUT) \
     && apt-get update \
-    && apt-get -y install --no-install-recommends yarn \
+    && apt-get install -y azure-cli dotnet-sdk-2.1 azure-functions-core-tools \
     #
-    # Install eslint globally
+    # Install eslint
     && npm install -g eslint \
     #
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
-
+        
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
