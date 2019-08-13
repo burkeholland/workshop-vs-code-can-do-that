@@ -1,13 +1,17 @@
-USE FrontEndMasters;
+USE Lamp;
 
-CREATE TABLE IF NOT EXISTS Users (
-    user_id INT AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    PRIMARY KEY (user_id)
-)  ENGINE=INNODB;
+-- CREATE TABLE IF NOT EXISTS Colors (
+--     color_id INT AUTO_INCREMENT,
+--     color VARCHAR(255) NOT NULL,
+--     PRIMARY KEY (color_id)
+-- )  ENGINE=INNODB;
 
-INSERT INTO Users (name) VALUES("Burke Holland")
+-- INSERT INTO Colors (color) VALUES("Blue")
 
-SELECT * FROM Users
+SELECT * FROM Colors
 
-CREATE DATABASE FrontEndMasters;
+
+
+
+
+-- CREATE DATABASE Lamp;

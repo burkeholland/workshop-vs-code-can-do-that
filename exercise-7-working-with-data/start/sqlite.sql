@@ -1,9 +1,9 @@
 -- SQLite
-CREATE TABLE users (
+CREATE TABLE colors (
  id INTEGER PRIMARY KEY,
-   name TEXT TEXT NOT NULL
-)
+ color TEXT NOT NULL
+);
 
--- INSERT INTO users (id, name) VALUES (1, 'Burke Holland')
+INSERT INTO colors (id, color) VALUES (1, 'Blue')
 
--- SELECT * FROM users
+SELECT * FROM colors

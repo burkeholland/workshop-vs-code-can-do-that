@@ -4,6 +4,8 @@ These exercises are part of the "VS Code Can Do That" workshop from Front End Ma
 
 [aka.ms/vs-code-workshop](aka.ms/vs-code-workshop)
 
+The instructions for how to complete these exercises can be found at [burkeholland.gitbook.io/vs-code-can-do-that](https://burkeholland.gitbook.io/vs-code-can-do-that)
+
 ## Prerequisites
 
 **These are important. You need to have these items installed to complete this workshop**
@@ -12,10 +14,6 @@ These exercises are part of the "VS Code Can Do That" workshop from Front End Ma
 - [Node(LTS)](https://nodejs.org/en/)
 - [Docker Community Edition](https://docs.docker.com/install/)
 - [VS Code Can Do That extension pack](https://marketplace.visualstudio.com/items?itemName=burkeholland.vs-code-can-do-that)
-
-## Viewing the exercises
-
-Each folder contains an `exercise.adoc` file. These are asciidoc files. To view them, open the command palette and select "AsciiDoc: Open Locked Preview to the Side". You can then close the `.ascidoc` file and just look at the preview.
 
 ## Running the exercises
 
@@ -33,31 +31,5 @@ Some of the exercises contain multiple workspaces. This allows you to load multi
 There will be a "start" project and a "solution" project in the workspace. Work in the "start" project and refer to the "solution" project for the finished exercise should you get stuck.
 
 ![](images/exercise-start-solution.png)
-
-Some projects have a static `index.html` file that needs a web server to run. I have included an extension called "Live Server" that does just that. To start it, click on the "Go Live" button in the status bar.
-
-![](images/go-live.png)
-
-Note that if you are working in an exercise with multiple workspaces, you'll need to make sure that Live Server is running against the "start" project and not the "solution". Open the Command Palette (Ctrl/Cmd + Shift + P) and select "Live Server: Change live server workspace"
-
-![](images/change-workspace.png)
-
-Then select the "start" workspace.
-
-![](images/select-start-workspace.png)
-
-Then click the "Go Live" button in the status bar.
-
-## Essential Keyboard Shortcuts
-
-Before you start, familiarize with these 5 fundamental keyboard shortcuts...
-
-| Action                     | Shortcut                                                           |
-| -------------------------- | ------------------------------------------------------------------ |
-| Toggle Sidebar             | <kbd>Ctrl</kbd> / <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> |
-| Open Command Palette       | <kbd>Ctrl</kbd> / <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> |
-| Open File Switcher         | <kbd>Ctrl</kbd> / <kbd>Cmd</kbd> + <kbd>P</kbd>                    |
-| Toggle integrated terminal | <kbd>Ctrl</kbd> + <kbd>`</kbd>                                     |
-| Open Settings              | <kbd>Ctrl</kbd> / <kbd>Cmd</kbd> + <kbd>,</kbd>                    |
 
 ## Good luck!
