@@ -3,7 +3,7 @@ const API_BASE = "https://lifx-lamp-api.azurewebsites.net/api";
 // define variables
 let app = document.getElementById("app");
 let goButton = document.getElementById("goButton");
-let colorInput = document.getElementById("colorInput");
+let lampInput = document.getElementById("colorInput");
 let currentColor = document.getElementById("currentColor");
 let bulb = document.getElementById("bulb");
 let online = window.navigator.onLine;
@@ -17,7 +17,7 @@ class App {
     const online = window.navigator.onLine;
 
     goButton.addEventListener("click", async () => {
-      const color = colorInput.value;
+      const color = lampInput.value;
       this.setColor(color);
     });
 
