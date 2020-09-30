@@ -10,7 +10,6 @@ const App = {
       .get(`${API_BASE}/setColor?color=blue`)
       .then(response => {
         response.data.results.forEach(item => {
-          console.log(item);
           // update the lamp color
         });
       })

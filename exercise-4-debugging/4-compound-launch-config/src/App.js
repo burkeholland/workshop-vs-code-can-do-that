@@ -18,7 +18,7 @@ class App extends Component {
       .build();
 
     // receives the "colorChanged" web socket event
-    connection.on("colorChanged", hex => {
+    connection.on("colorChanged", (hex) => {
       // add a color circle
       this.setState({ bulbColor: hex });
     });
@@ -31,11 +31,11 @@ class App extends Component {
     await fetch(`/api/setColor?color=${this.state.color.substring(1)}`);
   }
 
-  handleColorChange = event => {
+  handleColorChange = (event) => {
     this.setState({ color: event.target.value });
   };
 
-  handleUpdateColor = async => {
+  handleUpdateColor = (async) => {
     this.updateColor();
   };
 
