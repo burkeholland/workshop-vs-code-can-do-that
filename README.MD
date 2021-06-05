@@ -13,6 +13,6 @@ The instructions for how to complete these exercises can be found at [burkeholla
 - [Git](https://git-scm.com/downloads)
 - [Node(LTS)](https://nodejs.org/en/)
 - [Docker Community Edition](https://docs.docker.com/install/)
-- [VS Code Can Do That extension pack](https://marketplace.visualstudio.com/items?itemName=burkeholland.vs-code-can-do-that)
+- [VS Code Can Do That extension pack](https://marketplace.visualstudio.com/items?itemName=burkeholland.vs-code-can-do-that&WT.mc_id=devcloud-0000-buhollan)
 
 ## Good luck!
