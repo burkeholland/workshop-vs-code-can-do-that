@@ -9,7 +9,7 @@
     "bulma": "^0.7.5",
     "cookie-parser": "^1.4.3",
     "debug": "~2.6.3",
-    "express": "^4.15.3",
+    "express": "^4.17.3",
     "is-online": "^8.2.0",
     "jade": "^1.11.0",
     "mongodb": "^3.2.7",
