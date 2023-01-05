@@ -20,7 +20,7 @@
   "devDependencies": {
     "concurrently": "^3.5.0",
     "nodemon": "^1.12.0",
-    "react-scripts": "1.0.10"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
